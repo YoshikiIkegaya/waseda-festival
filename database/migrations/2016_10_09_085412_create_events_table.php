@@ -15,7 +15,7 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->default(1)->unsigned();
             $table->string('name')->default('');
             $table->enum('category', [
                 'performance',

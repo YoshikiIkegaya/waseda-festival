@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\EventRepositoryInterface;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Event;
 
@@ -52,9 +53,12 @@ class EventController extends Controller
     public function store(Request $request)
     {
         try {
-            if ($this->eventRepository->create($request)) {
-                
-                return 'Sucess!!';
+            if ($this->eventRepository->create($request->toArray())) {
+
+                return json_encode([
+                    'status' => 'true',
+                    'data' => ['message' => 'Successful']
+                ]);
             }
         } catch (Exception $e) {
             \Log::info($e->getMessage());
