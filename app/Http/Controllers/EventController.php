@@ -53,6 +53,7 @@ class EventController extends Controller
     {
         try {
             if ($this->eventRepository->create($request)) {
+                
                 return 'Sucess!!';
             }
         } catch (Exception $e) {
