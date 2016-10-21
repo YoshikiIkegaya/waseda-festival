@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Admin;
 
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\EventRepositoryInterface;
@@ -30,8 +30,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $data = $this->eventRepository->all();
-        return response()->json($data);
+        $data = $this->eventRepository->orderBy('from_time', 'asc')->all();
+        
+        return response()->json($data, 200, ['Content-Type' => 'application/json; charset=UTF-8', 'charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
     }
 
     /**

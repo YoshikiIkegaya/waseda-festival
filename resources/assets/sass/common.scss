@@ -1,0 +1,45 @@
+.login-container {
+  right: 0px;
+  margin: 0px auto;
+  margin-top: 5%;
+  max-width: 700px;
+  position: relative;
+}
+
+button .btn-login {
+  padding: 6px 70px;
+  font-size: 20px;
+  background: #25227d;
+}
+
+.common-datatable td, .common-datatable th {
+  vertical-align: middle !important;
+}
+
+th.last.action {
+  width: 10%;
+}
+
+.edit-delete-btn {
+  width: 65px;
+}
+
+.alert.alert-success {
+  margin-top: 20px;
+}
+
+.action-create {
+  padding-right: 0px;
+}
+
+.action-create a {
+  margin-right: 0px;
+}
+
+.client-table table {
+  width: 100%
+}
+
+.form-horizontal .form-group .client_checkbox {
+  margin-right: 20px
+}

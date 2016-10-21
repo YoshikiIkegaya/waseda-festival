@@ -17,8 +17,9 @@ class EventTableSeeder extends Seeder
             'name' => $faker->name,
             'category' => $faker->randomElement(['performance', 'lecture']),
             'place' => $faker->address,
-            'from_time' => $faker->dateTimeThisCentury($max = 'now'),
-            'to_time' => $faker->dateTimeThisCentury($max = 'now'),
+            'day' => $faker->randomElement([1,2]),
+            'from_time' => $faker->time,
+            'to_time' => $faker->time,
             'description' => $faker->numerify('Descriptioon ###'),
             'detail' => $faker->numerify('Detail ###'),
         ]);

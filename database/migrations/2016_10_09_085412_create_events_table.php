@@ -22,8 +22,9 @@ class CreateEventsTable extends Migration
                 'lecture',
             ]);
             $table->string('place')->default('');
-            $table->datetime('from_time')->nullable();
-            $table->datetime('to_time')->nullable();
+            $table->integer('day')->nullable();
+            $table->time('from_time')->nullable();
+            $table->time('to_time')->nullable();
             $table->string('description')->default('');
             $table->string('detail')->default('');
             $table->timestamps();
