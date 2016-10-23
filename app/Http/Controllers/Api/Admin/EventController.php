@@ -80,7 +80,7 @@ class EventController extends Controller
 
     public function showOnDay($day)
     {
-        $data = $this->eventRepository->orderBy('from_time', 'asc')->findBy('day', $day);
+        $data = $this->eventRepository->orderBy('from_time', 'asc')->findAllBy('day', $day);
 
         return response()->json($data, 200, ['Content-Type' => 'application/json; charset=UTF-8', 'charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
     }
