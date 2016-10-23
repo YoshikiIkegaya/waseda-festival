@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\Admin;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\EventRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Event;
 
 class EventController extends Controller
@@ -79,6 +78,13 @@ class EventController extends Controller
         //
     }
 
+    public function showOnDay($day)
+    {
+        $data = $this->eventRepository->orderBy('from_time', 'asc')->findBy('day', $day);
+
+        return response()->json($data, 200, ['Content-Type' => 'application/json; charset=UTF-8', 'charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -99,6 +105,10 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($delete) {
+            # code...
+        }
+
         return 'update';
     }
 
@@ -110,6 +120,19 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
+        try {
+            if ($this->eventRepository->find($id)->delete()) {
+                
+                return json_encode([
+                    'status' => 'true',
+                    'data' => ['message' => 'Successful']
+                ]);
+            }
+            
+        } catch (Exception $e) {
+            \Log::info($e->getMessage());
+        }
+
         return 'destroy param id = ' . $id;
     }
 }

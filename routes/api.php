@@ -18,8 +18,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group([
-    'prefix'        => 'admin',
+    'prefix' => 'admin',
 ], function () {
     Route::resource('/events', 'Api\Admin\EventController');
+
+    Route::get('/events/onday/{day}', ['uses' => 'Api\Admin\EventController@showOnDay']);
 });
 

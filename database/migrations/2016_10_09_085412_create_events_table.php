@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->integer('day')->nullable();
             $table->time('from_time')->nullable();
             $table->time('to_time')->nullable();
-            $table->string('description')->default('');
+            $table->string('outline')->default('');
             $table->string('detail')->default('');
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class EventTableSeeder extends Seeder
             'day' => $faker->randomElement([1,2]),
             'from_time' => $faker->time,
             'to_time' => $faker->time,
-            'description' => $faker->numerify('Descriptioon ###'),
+            'outline' => $faker->numerify('Descriptioon ###'),
             'detail' => $faker->numerify('Detail ###'),
         ]);
     }
